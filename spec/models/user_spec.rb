@@ -27,6 +27,11 @@ describe User do
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:answers) }
+  it { should respond_to(:answered_questions) }
+  
+  it { should respond_to(:answered?) }  
+  it { should respond_to(:answer!) }
   
   it { should be_valid }
 

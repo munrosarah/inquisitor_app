@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
   has_secure_password
   
+  has_many :answers, foreign_key: "question_id", dependent: :destroy
+  
+  
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
     
@@ -23,6 +26,17 @@ class User < ActiveRecord::Base
 
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+  
+    # Return whether this question has been answered by a given user
+  def answered?(question)
+    Answer.find_by_user_id_and_question_id(self.id, question.id)
+  end
+  
+  # Return the current user's answer to this question
+  def answer(question)
+    @answer = Answer.find_by_user_id_and_question_id(self.id, question.id)
+    @answer.content
+  end
   
   private
 

@@ -1,0 +1,5 @@
+<% if current_user.answered?(question) %>
+  <%= render 'show_answer', question: question %>
+<% else %>
+  <%= render 'get_answer_form', question: question %>
+<% end %>

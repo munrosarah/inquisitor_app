@@ -1,0 +1,14 @@
+<% provide(:title, 'Add question') %>
+<h1>Add question</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@question) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.text_field :content, placeholder: "Enter new question here..." %>
+
+      <%= f.submit "Add Question", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

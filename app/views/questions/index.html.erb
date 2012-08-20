@@ -1,0 +1,16 @@
+<% provide(:title, 'All users') %>
+<h1>All questions</h1>
+
+<%= will_paginate %>
+
+<ul class="questions">
+  <% @questions.each do |question| %>
+    <li>
+      <%= link_to question.content, question %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add a New Question", addquestion_path, class: "btn btn-large btn-primary" %>
+
+<%= will_paginate %>
