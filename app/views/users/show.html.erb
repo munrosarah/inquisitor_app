@@ -1,2 +1,13 @@
 <% provide(:title, @user.name) %>
-<h1><%= @user.name %></h1>
+<h1><%= @user.name + "\'s Answers" %></h1>
+
+
+<ul class="questions">
+  <% @user.answers.each do |a| %>
+    <li>
+      <%= Question.find_by_id(a.question_id).content %>
+      <%= a.content %>
+    </li>
+  <% end %>
+</ul>
+

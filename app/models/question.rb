@@ -3,7 +3,7 @@
 class Question < ActiveRecord::Base
   attr_accessible :content
   
-  has_many :answers, foreign_key:"user_id", dependent: :destroy
+  has_many :answers, dependent: :destroy
   
   validates :content, presence: true
   
