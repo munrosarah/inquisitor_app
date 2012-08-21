@@ -1,0 +1,19 @@
+<% provide(:title, @question.content) %>
+<h1><%= @question.content %></h1>
+
+
+<ul class="questions">
+  <% @question.answers.each do |a| %>
+    <li>
+      <table>
+        <tr style="height: 42.5px;">
+          <td style="min-width: 400px">
+            <span class="q"><%= a.content %></span>
+          </td>
+          <td>
+          </td>
+        </tr>
+      </table>
+    </li>
+  <% end %>
+</ul>

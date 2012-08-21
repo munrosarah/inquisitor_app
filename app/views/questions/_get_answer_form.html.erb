@@ -1,15 +1,14 @@
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(question.answers.build(user_id: current_user.id, question_id: question.id)) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+<%= form_for(question.answers.build(user_id: current_user.id, question_id: question.id)) do |f| %>
+<table>
+  <tr>
+    <td style="min-width:400px;vertical-align: middle;">
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :question_id, value: question.id %>
-      <%= f.label :content %>
       <%= f.text_field :content %>
-
-      
+    </td>
+    <td>
       <%= f.submit "Submit Answer", class: "btn btn-large btn-primary" %>
-    <% end %>
-  </div>
-</div>
-  
+    </td>
+  </tr>
+</table>
+<% end %>

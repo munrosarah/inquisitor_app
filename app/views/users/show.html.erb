@@ -5,9 +5,19 @@
 <ul class="questions">
   <% @user.answers.each do |a| %>
     <li>
-      <%= Question.find_by_id(a.question_id).content %>
-      <%= a.content %>
+      <table>
+        <tr>
+          <td style="min-width: 400px">
+            <span class="q"><%= Question.find_by_id(a.question_id).content %></span>
+          </td>
+          <td>
+            <span class="answers"><%= a.content %></span>
+          </td>
+        </tr>
+      </table>
     </li>
   <% end %>
 </ul>
+
+
 

@@ -6,6 +6,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  # Show all questions, answered or no - for allowing editing and answering
+  def answer_questions
+    @questions = Question.all
+  end
+
   # Make a new user
   def new
     @user = User.new

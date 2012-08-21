@@ -1,4 +1,21 @@
 <% provide(:title, @question.content) %>
 <h1><%= @question.content %></h1>
 
-<%= render 'answer_form', question: @question %>
+
+<ul class="questions">
+  <% @question.answers.each do |a| %>
+    <li>
+      <table>
+          <tr>
+            <td style="min-width: 300px">              
+                <span class="q"><%= Answer.find_by_id(a.id).user.name %></span>
+            </td>
+            <td>
+              <%= a.content %>  
+            </td>
+          </tr>
+      </table>
+          
+    </li>
+  <% end %>
+</ul>

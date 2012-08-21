@@ -1,0 +1,24 @@
+<% provide(:title, "Answer Questions") %>
+<h1><%= "Answer Questions" %></h1>
+
+
+<ul class="questions">
+  <% @questions.each do |q| %>
+    <li>
+      <table>
+        <tr style="height: 42.5px;">
+          <td style="min-width: 400px">
+            <span class="q"><%= q.content %></span>
+          </td>
+          <td>
+            <% if current_user.answered?(q) %>
+              <%= current_user.answer(q) %>
+            <% else %>
+              <%= render 'questions/get_answer_form', question: q %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </li>
+  <% end %>
+</ul>
