@@ -6,8 +6,7 @@
       <%= f.hidden_field :question_id, value: question.id %>
       <%= f.label :content %>
       <%= f.text_field :content %>
-      <%= current_user.id %>
-      <%= question.id %>
+
       
       <%= f.submit "Submit Answer", class: "btn btn-large btn-primary" %>
     <% end %>
