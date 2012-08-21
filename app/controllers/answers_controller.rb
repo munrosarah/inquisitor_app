@@ -10,10 +10,10 @@ class AnswersController < ApplicationController
     # If the answer successfully saved, redirect back to questions
     if @answer.save
       flash[:success] = "Question answered!"
-      redirect_to 'answer_questions'
+      redirect_to answer_questions_path
     else
       flash[:fail] = "Oops, that didn't work."
-      redirect_to 'answer_questions'
+      redirect_to answer_questions_path
     end
   end
   

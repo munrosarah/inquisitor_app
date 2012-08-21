@@ -89,7 +89,7 @@ input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   padding: 10px;
-  margin-bottom: -10px;
+  margin-bottom: 0px;
   height: auto;
 
   @include box_sizing;
