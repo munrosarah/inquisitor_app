@@ -1,8 +1,14 @@
 <% provide(:title, 'Home') %>
 <h1> Inquisitor App</h1>
-<p>Welcome to the Inquisitor App!</p>
-
-<div><%= link_to "Sign In", 'signin', class: "btn btn-large btn-primary" %></div>
-  <br>
-  <div>Not a member? <%= link_to "Sign up now!", 'signup' %></div>    
-</div>
+<h2>Welcome to the Inquisitor App!</h2>
+<% if signed_in? %>
+  <div style="text-align: center;">
+    <%= link_to "Add Questions", 'questions', class: "btn btn-large btn-primary" %>
+    <%= link_to "Answer Questions", 'answer_questions', class: "btn btn-large btn-primary" %>
+  </div>
+<% else %>
+  <div><%= link_to "Sign In", 'signin', class: "btn btn-large btn-primary" %></div>
+    <br>
+    <div>Not a member? <%= link_to "Sign up now!", 'signup' %></div>    
+  </div>
+<% end %>
